@@ -21,11 +21,11 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
 	}
 
 	
-	public PatientType nextPatient() {
+	public PatientType nextPatients() {
 		return pqH.get(1);
 	}
 
-	public PatientType treatPatient() {
+	public PatientType treatNextPatient() {
 		pqH.removeFirst();
 		return pqH.getFirst();
 	}

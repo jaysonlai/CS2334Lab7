@@ -1,8 +1,8 @@
 import java.util.LinkedList;
 
-public class StackHospital<PatientType> {
+public class StackHospital<PatientType> extends Hospital<PatientType>{
 	
-	private LinkedList<PatientType> stackH = new LinkedList<>();
+	private LinkedList<PatientType> stackH = new LinkedList<PatientType>();
 	public StackHospital() {
 		super();
 	}
@@ -14,12 +14,12 @@ public PatientType nextPatient() {
 	return stackH.get(stackH.size()-1);
 }
 
-public PatientType treatPatient() {
+public PatientType treatNextPatient() {
 	stackH.removeLast();
 	return stackH.getLast();
 }
 
-public int numPatient() {
+public int numPatients() {
 	return stackH.size();
 }
 
@@ -32,8 +32,9 @@ public String allPatientInfo() {
 }
 @Override
 public String toString() {
-	return String.format("A %s-type hospital with %d patients", hospitalType(), numPatient());
+	return String.format("A %s-type hospital with %d patients", hospitalType(), numPatients());
 }
+
 
 
 }
