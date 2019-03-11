@@ -13,14 +13,12 @@ public int getSeverity()
 }
 
 protected int compareToImpl(Person p) {
-	if(this.severity  > ((SickPerson) p).getSeverity()){
-		return this.severity;
-	}
-	else if(this.severity  < ((SickPerson) p).getSeverity()) {
-		return ((SickPerson) p).getSeverity();
-	}
-	else {
-		return 0;
-	}
+	
+	return this.severity - ((SickPerson) p).getSeverity();
 }
+@Override
+public String toString() {
+	return String.format("%s, %d, %d", getName(), getAge(), this.severity);
+}
+
 }

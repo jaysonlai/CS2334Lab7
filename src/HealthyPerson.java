@@ -13,10 +13,10 @@ public abstract class HealthyPerson extends Person{
 protected int compareToImpl(Person p)
 {
 	if(this.getName().charAt(0) > p.getName().charAt(0)) { 
-		return 1;
+		return -1;
 	}
 	else if(this.getName().charAt(0) < p.getName().charAt(0)) {
-		return -1;
+		return 1;
 	}
 	else {
 		return 0;

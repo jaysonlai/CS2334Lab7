@@ -9,9 +9,18 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
 	
 	
 	public void addPatient(PatientType patient) {
-		pqH.addLast(patient);
+		for(int index = 0; index < pqH.size(); index++) {
+			if(patient.compareTo(pqH.get(index)) > -1) {
+			pqH.add(index-1, patient);
+			}
+			else {
+				pqH.addLast(patient);
+			}
+		
+	}
 	}
 
+	
 	public PatientType nextPatient() {
 		return pqH.get(1);
 	}
@@ -26,11 +35,11 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
 	}
 
 	public String hospitalType() {
-		return "Queue Hospital";
+		return "Priority Queue Hospital";
 	}
 
 	public String allPatientInfo() {
-		String.format();
+		return pqH.toString();
 	}
 	@Override
 	public String toString() {

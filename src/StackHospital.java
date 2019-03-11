@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 
 public class StackHospital<PatientType> {
+	
 	private LinkedList<PatientType> stackH = new LinkedList<>();
 	public StackHospital() {
 		super();
@@ -27,7 +28,7 @@ public String hospitalType() {
 }
 
 public String allPatientInfo() {
-	String.format();
+	return stackH.toString();
 }
 @Override
 public String toString() {
