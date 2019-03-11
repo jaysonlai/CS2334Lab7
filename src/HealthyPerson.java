@@ -7,8 +7,26 @@ public abstract class HealthyPerson extends Person{
 		this.reason = reason;
 		// TODO Auto-generated constructor stub
 	}
+	public String getReason() {
+		return reason;
+	}
 protected int compareToImpl(Person p)
 {
-	if
+	if(this.getName().charAt(0) > p.getName().charAt(0)) { 
+		return 1;
+	}
+	else if(this.getName().charAt(0) < p.getName().charAt(0)) {
+		return -1;
+	}
+	else {
+		return 0;
+	}
 }
+
+@Override
+public String toString()
+{
+	return String.format("%s, %d, %s", getName(), getAge(), this.reason);
+}
+
 }
