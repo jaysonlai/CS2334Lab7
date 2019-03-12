@@ -5,7 +5,7 @@
  * @version 03-11-19
  * 
  */
-public abstract class SickPerson extends Person{
+public class SickPerson extends Person{
 	
 	private int severity;
 	
@@ -39,15 +39,18 @@ public int getSeverity()
  * (3) severity are equivalent: 0 Orders by decreasing severity.
  */
 protected int compareToImpl(Person p) {
-	if(this.getSeverity() > ((SickPerson) p).getSeverity()) {
+	if(p instanceof SickPerson) {
+	if(this.getSeverity() < ((SickPerson) p).getSeverity()) {
 		return 1;
 	}
-	else if(this.getSeverity() < ((SickPerson) p).getSeverity()) {
+	else if(this.getSeverity() > ((SickPerson) p).getSeverity()) {
 		return -1;
 	}
 	else {
 		return 0;
 	}
+	}
+	return 0;
 }
 
 /**
@@ -58,7 +61,7 @@ protected int compareToImpl(Person p) {
 
 @Override
 public String toString() {
-	return String.format("%s In for %s", super.toString(), severity);
+	return String.format("%s, a %d-year old, severity %d.", this.getName(), this.getAge(), this.getSeverity());
 }
 
 }

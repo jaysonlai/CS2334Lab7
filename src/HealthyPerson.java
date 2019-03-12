@@ -46,7 +46,7 @@ protected int compareToImpl(Person p)
 @Override
 public String toString()
 {
-	return String.format("%s In for %s", super.toString(), this.reason);
+	return String.format("%s, a %d-year old, in the hospital because %s.", this.getName(), this.getAge(), this.getReason());
 }
 
 }
