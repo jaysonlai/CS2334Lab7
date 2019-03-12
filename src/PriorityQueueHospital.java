@@ -1,3 +1,10 @@
+/*
+ * Class to represent a hospital that orders based on a priority stat number.
+ * 
+ * @author Jayson Lai
+ * @version 031019
+ * @param <PatientType>
+ */
 import java.util.LinkedList;
 
 public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> {
