@@ -29,7 +29,7 @@ public class QueueHospital<PatientType> extends Hospital<PatientType>{
 	 * @return the top first item in the stack
 	 */
 	public PatientType nextPatient() {
-		return queueH.peek();
+		return ((LinkedList<PatientType>) queueH).peekFirst();
 	}
 
 	/**

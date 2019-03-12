@@ -1,43 +1,46 @@
 /*
- * Class to represent a hospital that orders based on a priority stat number.
+ * Class representing the order the patients will be treated, 
+ * unless the patients have a natural ordering
+ * the patients should be treated via QueueHospital ordering
  * 
  * @author Jayson Lai
  * @version 031019
  * @param <PatientType>
  */
-import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
-public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> {
+public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> extends Hospital<PatientType>{
 
-	private LinkedList<PatientType> pqH = new LinkedList<>();
+	/**
+	 * create a priority queue list to contain patients
+	 */
+	private Queue<PatientType> pqH;
+	
+	
+/**
+ *  constructor initialize the priority queue list
+ */
 	public PriorityQueueHospital() {
 		super();
+		pqH = new PriorityQueue<>();
 	}
 	
 	
 	public void addPatient(PatientType patient) {
-		for(int index = 0; index < pqH.size(); index++) {
-			if(patient.compareTo(pqH.get(index)) > -1) {
-			pqH.add(index-1, patient);
-			}
-			else {
-				pqH.addLast(patient);
-			}
-		
-	}
+		pqH.add(patient);
 	}
 
 	
-	public PatientType nextPatients() {
-		return pqH.get(1);
+	public PatientType nextPatient() {
+		return pqH.peek();
 	}
 
 	public PatientType treatNextPatient() {
-		pqH.removeFirst();
-		return pqH.getFirst();
+		return pqH.poll();
 	}
 
-	public int numPatient() {
+	public int numPatients() {
 		return pqH.size();
 	}
 
@@ -48,8 +51,6 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
 	public String allPatientInfo() {
 		return pqH.toString();
 	}
-	@Override
-	public String toString() {
-		return String.format("A %s-type hospital with %d patients", hospitalType(), numPatient());
-	}
+	
+
 }
