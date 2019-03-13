@@ -73,7 +73,7 @@ public class QueueHospitalTest {
 		QueueHospital<SickPerson> list6 = new QueueHospital<>();
 		SickPerson marquez = new SickPerson("Mango", 3, 3);
 		list6.addPatient(marquez);
-		Assert.assertEquals("Mango, a 3-year old, severity 3.", marquez.toString());
+		Assert.assertEquals("[Mango, a 3-year old, severity 3.]", list6.allPatientInfo());
 		
 	}
 }
