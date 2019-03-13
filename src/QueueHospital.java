@@ -63,6 +63,10 @@ public class QueueHospital<PatientType> extends Hospital<PatientType>{
 	 * @return The toString of all patients
 	 */
 	public String allPatientInfo() {
-		return queueH.toString();
+		String patient ="";
+		for(PatientType p: queueH) {
+			patient = patient + p.toString();
+		}
+		return patient;
 	}
 	}

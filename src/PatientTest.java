@@ -49,14 +49,14 @@ public class PatientTest {
 	@Test
 	public void sickToStringTest() {
 		SickPerson bobo = new SickPerson("Bobs", 29, 69);
-		Assert.assertEquals("Bobs, a 29-year old, severity 69.", bobo.toString());
+		Assert.assertEquals("Bobs, a 29-year old. Severity level 69.", bobo.toString());
 	}
 	
 	@Test
 	public void sickCompareTo() {
-		SickPerson leffen = new SickPerson("Leffen", 22, 3);
-		SickPerson hBox = new SickPerson("HungryBox", 24, 999);
-		SickPerson juan = new SickPerson("HungryBox", 24, 999);
+		SickPerson leffen = new SickPerson("Leffen",15, 1);
+		SickPerson hBox = new SickPerson("HungryBox", 12, 2);
+		SickPerson juan = new SickPerson("hbox", 13, 2);
 		Assert.assertEquals(1, leffen.compareTo(hBox));
 		Assert.assertEquals(-1, hBox.compareTo(leffen));
 		Assert.assertEquals(0, hBox.compareTo(juan));
@@ -77,7 +77,7 @@ public class PatientTest {
 	@Test
 	public void healthyToStringTest() {
 		HealthyPerson pepe= new HealthyPerson("Frawg", 420, "pepeHands");
-		Assert.assertEquals("Frawg, a 420-year old, in the hospital because pepeHands.", pepe.toString());
+		Assert.assertEquals("Frawg, a 420-year old. In for pepeHands", pepe.toString());
 	}
 	@Test
 	public void healthyCompareTo() {
@@ -85,8 +85,8 @@ public class PatientTest {
 		HealthyPerson mang0W = new HealthyPerson("SoCal", 25, "The GOAT");
 		HealthyPerson mang0 = new HealthyPerson("SoCal", 25, "Always Drunk");
 		
-		Assert.assertEquals(1, jebailey.compareTo(mang0W));
-		Assert.assertEquals(-1, mang0W.compareTo(jebailey));
+		Assert.assertEquals(-1, jebailey.compareTo(mang0W));
+		Assert.assertEquals(1, mang0W.compareTo(jebailey));
 		Assert.assertEquals(0, mang0W.compareTo(mang0));
 		
 	}

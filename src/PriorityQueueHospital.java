@@ -77,7 +77,11 @@ public class PriorityQueueHospital<PatientType> extends Hospital<PatientType>{
 	 * 
 	 */
 	public String allPatientInfo() {
-		return pqH.toString();
+		String patient ="";
+		for(PatientType p: pqH) {
+			patient = patient + p.toString();
+		}
+		return patient;
 	}
 	
 

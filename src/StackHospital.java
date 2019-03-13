@@ -53,6 +53,10 @@ public String hospitalType() {
  * @return The toString of all patients
  */
 public String allPatientInfo() {
-	return stackH.toString();
+	String patient ="";
+	for(PatientType p: stackH) {
+		patient = patient + p.toString();
+	}
+	return patient;
 }
 }

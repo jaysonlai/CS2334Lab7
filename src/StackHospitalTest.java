@@ -76,7 +76,7 @@ public class StackHospitalTest {
 		StackHospital<SickPerson> list6 = new StackHospital<>();
 		SickPerson marquez = new SickPerson("Mango", 3, 3);
 		list6.addPatient(marquez);
-		Assert.assertEquals("[Mango, a 3-year old, severity 3.]", list6.allPatientInfo());
-		
+		Assert.assertEquals("Mango, a 3-year old. Severity level 3.", list6.allPatientInfo());
+		Assert.assertEquals("A Stack Hospital-type hospital with 1 patients.", list6.toString());
 	}
 }

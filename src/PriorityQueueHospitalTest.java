@@ -18,16 +18,15 @@ public class PriorityQueueHospitalTest {
 	@Test
 	public void nextPatientTest() {
 		PriorityQueueHospital<SickPerson> list2 = new PriorityQueueHospital<>();
-		SickPerson one1 = new SickPerson("Mo", 11, 6);
-		SickPerson two2 = new SickPerson("Jo", 6, 15);
-		SickPerson three3 = new SickPerson("Bo", 5, 11);
+		SickPerson one1 = new SickPerson("Mo", 10, 6);
+		SickPerson two2 = new SickPerson("Jo", 19, 9);
+		SickPerson three3 = new SickPerson("Bo", 75, 11);
 		
 		list2.addPatient(one1);
 		list2.addPatient(two2);
 		list2.addPatient(three3);
 		
-		Assert.assertEquals(two2, list2.nextPatient());
-		Assert.assertEquals(two2, list2.nextPatient());
+		Assert.assertEquals(three3, list2.nextPatient());
 		
 	}
 	
@@ -73,7 +72,8 @@ public class PriorityQueueHospitalTest {
 		PriorityQueueHospital<SickPerson> list6 = new PriorityQueueHospital<>();
 		SickPerson marquez = new SickPerson("Mango", 3, 3);
 		list6.addPatient(marquez);
-		Assert.assertEquals("[Mango, a 3-year old, severity 3.]", list6.allPatientInfo());
-		
+		Assert.assertEquals("Mango, a 3-year old. Severity level 3.", list6.allPatientInfo());
+		Assert.assertEquals("A Priority Queue Hospital-type hospital with 1 patients.", list6.toString());
+
 	}
 }

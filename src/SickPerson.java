@@ -39,16 +39,18 @@ public int getSeverity()
  * (3) severity are equivalent: 0 Orders by decreasing severity.
  */
 protected int compareToImpl(Person p) {
-	if(this.getSeverity() < ((SickPerson) p).getSeverity()) {
-		return 1;
-	}
-	else if(this.getSeverity() > ((SickPerson) p).getSeverity()) {
-		return -1;
-	}
+	if(p instanceof SickPerson) {
+	if (((SickPerson)p).severity > this.severity) {	
+			return 1;
+		}
+	else if (((SickPerson)p).severity < this.severity) {
+			return -1;
+		}
 	else {
 		return 0;
 	}
-	
+	}
+	return 0;
 }
 
 /**
@@ -59,7 +61,7 @@ protected int compareToImpl(Person p) {
 
 @Override
 public String toString() {
-	return String.format("%s, a %d-year old, severity %d.", this.getName(), this.getAge(), this.getSeverity());
+return String.format("%s Severity level %d.", super.toString(), this.severity);
 }
 
 }

@@ -37,16 +37,20 @@ public class HealthyPerson extends Person{
 	 */
 protected int compareToImpl(Person p)
 {
-	if(this.getName().compareTo(p.getName()) > 0 ){
+	if (p instanceof HealthyPerson) {
+	if(p.getName().compareTo(this.getName()) > 0 ){
 		return -1;
 	}
-	else if(this.getName().compareTo(p.getName()) < 0 ){
+	else 	if(p.getName().compareTo(this.getName()) < 0 ){
+
 		return 1;
 	}
 	else {
 		return 0;
 	}
 	}
+return 0;
+}
 	
 
 /**
@@ -56,7 +60,7 @@ protected int compareToImpl(Person p)
 @Override
 public String toString()
 {
-	return String.format("%s, a %d-year old, in the hospital because %s.", this.getName(), this.getAge(), this.getReason());
+		return String.format("%s In for %s", super.toString(), getReason());
 }
 
 }
