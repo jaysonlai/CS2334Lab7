@@ -37,8 +37,18 @@ public class HealthyPerson extends Person{
 	 */
 protected int compareToImpl(Person p)
 {
-	return this.getName().compareTo(p.getName());
-}
+	if(this.getName().compareTo(p.getName()) > 0 ){
+		return -1;
+	}
+	else if(this.getName().compareTo(p.getName()) < 0 ){
+		return 1;
+	}
+	else {
+		return 0;
+	}
+	}
+	
+
 /**
  * 
  * @return the name, age and reason healthy person's visit

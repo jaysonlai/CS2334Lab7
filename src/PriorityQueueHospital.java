@@ -10,7 +10,7 @@
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> extends Hospital<PatientType>{
+public class PriorityQueueHospital<PatientType> extends Hospital<PatientType>{
 
 	/**
 	 * create a priority queue list to contain patients

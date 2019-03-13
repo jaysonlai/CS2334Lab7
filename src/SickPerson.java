@@ -39,7 +39,6 @@ public int getSeverity()
  * (3) severity are equivalent: 0 Orders by decreasing severity.
  */
 protected int compareToImpl(Person p) {
-	if(p instanceof SickPerson) {
 	if(this.getSeverity() < ((SickPerson) p).getSeverity()) {
 		return 1;
 	}
@@ -49,8 +48,7 @@ protected int compareToImpl(Person p) {
 	else {
 		return 0;
 	}
-	}
-	return 0;
+	
 }
 
 /**
